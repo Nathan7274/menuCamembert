@@ -1,0 +1,142 @@
+/*  Ce style s'applique au corps de la page. Il définit la disposition et l'apparence de base. */
+   body {
+    font-family: Arial, sans-serif;  
+    margin: 0; 
+    padding: 0;  
+    display: flex;  /* Utilisation du modèle Flexbox pour aligner les éléments */
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh;  /* Remplir toute la hauteur de la fenêtre */
+    background-color: #f0f0f0; 
+    flex-direction: column;  /* Disposer les éléments enfants en colonne */
+}
+
+/* Ce style s'applique à la barre de navigation en haut de la page. */
+nav {
+    background-color: #333; 
+    color: white;  
+    width: 100%; 
+    position: fixed; 
+    top: 0;  /* Placer la barre de navigation en haut */
+    left: 0;  /* Placer la barre de navigation à gauche */
+    display: flex;  /* Utilisation de Flexbox pour l'alignement des éléments à l'intérieur */
+    justify-content: flex-start;  /* Aligner le contenu à gauche */
+    align-items: center; 
+    padding: 1em; 
+    z-index: 10;  /* S'assurer que la barre de navigation soit au-dessus du reste du contenu */
+}
+
+/*  Ce style concerne l'icône hamburger visible uniquement sur petits écrans (responsive). */
+.hamburger {
+    display: none;  /* Par défaut, l'icône est cachée sur les grands écrans */
+    flex-direction: column;  /* Disposer les trois barres de l'icône hamburger en colonne */
+    justify-content: space-around; 
+    width: 30px;  
+    height: 30px;  
+    cursor: pointer;  /* Indiquer que l'élément est cliquable */
+    position: absolute;  /* Positionner l'icône de manière absolue */
+    left: 10px;  /* Positionner l'icône à gauche de l'écran */
+}
+
+/* Chaque barre est un div à l'intérieur de l'icône hamburger. */
+.hamburger div {
+    background-color: white;  
+    height: 4px;
+    width: 100%;
+}
+
+/*  Ce style concerne l'affichage du menu sur des écrans larges (plus de 576px). */
+nav ul {
+    list-style-type: none; 
+    padding: 0;  
+    margin: 0; 
+    display: flex;  /* Afficher les éléments du menu en ligne (horizontalement) */
+}
+
+nav ul li {
+    display: inline-flex;  /* Afficher chaque élément en ligne avec un peu d'espace entre eux */
+    margin: 0 1em;  
+}
+
+nav a {
+    color: white;  /* Couleur du texte du lien en blanc */
+    text-decoration: none;  /* Supprimer le soulignement des liens */
+    padding: 0.5em;  /* Ajouter un peu d'espace autour du texte du lien */
+    display: block;  /* Faire en sorte que les liens prennent toute la largeur de leur conteneur */
+}
+
+/* ============================
+   Cacher la case à cocher
+   ============================
+   La case à cocher (input[type="checkbox"]) est cachée dans ce bloc de style. */
+input {
+    display: none;  /* Cacher la case à cocher pour qu'elle ne soit pas visible */
+}
+
+/* ============================
+   Styles spécifiques pour les petits écrans (moins de 576px)
+   ============================
+   Ces styles sont appliqués uniquement quand la largeur de l'écran est inférieure à 576px. */
+@media (max-width: 576px) {
+    /* ============================
+       Cacher le menu par défaut sur petits écrans
+       ============================
+       Les éléments de menu sont cachés par défaut sur les petits écrans. */
+    nav ul {
+        display: none;  /* Cacher le menu par défaut sur petits écrans */
+        flex-direction: column;  /* Organiser les éléments du menu en colonne */
+        width: 100%;  /* Occuper toute la largeur de l'écran */
+        text-align: center;  /* Centrer les éléments du menu */
+        background-color: #333;  /* Appliquer un fond sombre pour le menu */
+        position: absolute;  /* Positionner le menu de manière absolue */
+        top: 60px;  /* Placer le menu juste en dessous de l'icône hamburger */
+        left: 0;  /* Aligner le menu à gauche */
+        z-index: 1;  /* Placer le menu au-dessus du reste du contenu */
+        justify-content: center;  /* Centrer les éléments du menu verticalement */
+    }
+
+    /* ============================
+       Cacher la case à cocher
+       ============================
+       Cacher la case à cocher, mais elle sera toujours utilisée pour afficher ou cacher le menu. */
+    nav input[type="checkbox"] {
+        display: none;  /* Cacher la case à cocher sur les petits écrans */
+    }
+
+    /* ============================
+       Affichage de l'icône hamburger sur petits écrans
+       ============================
+       L'icône hamburger est affichée uniquement sur les petits écrans. */
+    .hamburger {
+        display: flex;  /* Afficher l'icône hamburger sur les petits écrans */
+    }
+
+    /* ============================
+       Réduire la taille du texte
+       ============================
+       Adapter la taille du texte pour les petits écrans afin d'améliorer la lisibilité. */
+    .content h1 {
+        font-size: 1.5em;  /* Réduire la taille du titre pour les petits écrans */
+    }
+
+    .content p {
+        font-size: 1em;  /* Réduire la taille du texte pour les petits écrans */
+        padding: 10px;  /* Ajouter un peu d'espace autour du texte */
+    }
+}
+
+/* ============================
+   Menu affiché lorsque la case à cocher est cochée
+   ============================
+   Ce bloc affiche le menu lorsque la case à cocher est cochée. */
+nav input[type="checkbox"]:checked + label + ul {
+    display: flex;  /* Afficher les liens du menu quand la case à cocher est cochée */
+}
+
+/* ============================
+   Animation de l'apparition du menu
+   ============================
+   Ajouter une transition douce lorsque le menu apparaît. */
+nav ul {
+    transition: all 0.3s ease;  /* Appliquer une transition de 0.3 secondes pour l'apparition du menu */
+}

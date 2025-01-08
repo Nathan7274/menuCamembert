@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Hamburger en HTML et CSS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <!-- Case à cocher utilisée pour contrôler l'affichage du menu -->
+        <input type="checkbox" id="menu-toggle">
+
+        <!-- Icône hamburger visible uniquement sur petits écrans -->
+        <label for="menu-toggle" class="hamburger">
+            <div></div>  <!-- Première ligne -->
+            <div></div>  <!-- Deuxième ligne -->
+            <div></div>  <!-- Troisième ligne -->
+        </label>
+
+        <!-- Liens du menu -->
+        <ul>
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">À propos</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenu sous le menu -->
+    <div class="content">
+        <h1>Bienvenue sur notre site !</h1>
+        <p>Voici un exemple de menu hamburger en HTML et CSS. Cliquez sur l'icône en haut à gauche pour voir le menu sur un petit écran.</p>
+    </div>
+
+</body>
+</html>
