@@ -1,0 +1,108 @@
+
+body {
+    font-family: Arial, sans-serif;  
+    margin: 0; 
+    padding: 0;  
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh;  /* Remplir toute la hauteur de la fenêtre */
+    background-color: #f0f0f0; 
+    flex-direction: column;  /* Disposer les éléments enfants en colonne */
+}
+
+
+nav {
+    background-color: #333; 
+    color: white;  
+    width: 100%; 
+    position: fixed; 
+    top: 0;  /* Placer la barre de navigation en haut */
+    left: 0;  /* Placer la barre de navigation à gauche */
+    display: flex;  /* Utilisation de Flexbox pour l'alignement des éléments à l'intérieur */
+    justify-content: flex-start;  /* Aligner le contenu à gauche */
+    align-items: center; 
+    padding: 1em; 
+    z-index: 10;  /* S'assurer que la barre de navigation soit au-dessus du reste du contenu */
+}
+
+.hamburger {
+    display: none; 
+    flex-direction: column;  /* Disposer les trois barres de l'icône hamburger en colonne */
+    justify-content: space-around; 
+    width: 30px;  
+    height: 30px;  
+    cursor: pointer;  /* Indiquer que l'élément est cliquable */
+    position: absolute;  /* Positionner l'icône de manière absolue */
+    left: 10px;  /* Positionner l'icône à gauche de l'écran */
+}
+
+/* Chaque barre est un div à l'intérieur de l'icône hamburger. */
+.hamburger div {
+    background-color: white;  
+    height: 4px;
+    width: 100%;
+}
+
+nav ul {
+    list-style-type: none; 
+    padding: 0;  
+    margin: 0; 
+    display: flex;  /* Afficher les éléments du menu en ligne (horizontalement) */
+}
+
+nav ul li {
+    display: inline-flex;  /* Afficher chaque élément en ligne avec un peu d'espace entre eux */
+    margin: 0 1em;  
+}
+
+nav a {
+    color: white;  
+    text-decoration: none;  
+    padding: 0.5em;  /* Ajouter un peu d'espace autour du texte du lien */
+    display: block;  /* Faire en sorte que les liens prennent toute la largeur de leur conteneur */
+}
+
+input {
+    display: none;
+}
+
+/* Ces styles sont appliqués uniquement quand la largeur de l'écran est inférieure à 576px. */
+@media (max-width: 576px) {
+
+    nav ul {
+        display: none;  
+        flex-direction: column;  /* Organiser les éléments du menu en colonne */
+        width: 100%;
+        text-align: center; 
+        background-color: #333;
+        position: absolute;  /* Positionner le menu de manière absolue */
+        top: 60px;  /* Placer le menu juste en dessous de l'icône hamburger */
+        left: 0;  /* Aligner le menu à gauche */
+        z-index: 1;  /* Placer le menu au-dessus du reste du contenu */
+        justify-content: center;  /* Centrer les éléments du menu verticalement */
+    }
+
+    nav input[type="checkbox"] {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;  /* Afficher l'icône hamburger sur les petits écrans */
+    }
+
+    /* Adapter la taille du texte pour les petits écrans afin d'améliorer la lisibilité. */
+    .content h1 {
+        font-size: 1.5em;  
+    }
+
+    .content p {
+        font-size: 1em;
+        padding: 10px;
+    }
+}
+
+/* Ce bloc affiche le menu lorsque la case à cocher est cochée. */
+nav input[type="checkbox"]:checked + label + ul {
+    display: flex;  /* Afficher les liens du menu quand la case à cocher est cochée */
+}
